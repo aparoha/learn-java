@@ -1,4 +1,4 @@
-package datastructures.graphs;
+package datastructures.graphs.cycledetection;
 
 import java.util.*;
 

@@ -1,4 +1,4 @@
-package datastructures.graphs;
+package datastructures.graphs.shortestpath;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -12,6 +12,7 @@ import java.util.PriorityQueue;
         3. It is asymptotically the fastest known single source shortest path algorithm for arbitrary directed graph with unbounded
            non-negative weights
         4. O(VlogV + E)
+            Without priority queue O(V*V + E)
 
  */
 public class SSSPDijkstra {
@@ -108,7 +109,7 @@ public class SSSPDijkstra {
             for (Edge edge : actualVertex.getAdjacencyList()) {
                 Vertex v = edge.getTargetVertex();
                 double d = actualVertex.getDistance() + edge.getWeight();
-                if (d < v.getDistance()) {
+                if (v.getDistance() > d) {
                     v.setDistance(d);
                     v.setParent(actualVertex);
                     queue.add(v);

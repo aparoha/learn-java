@@ -1,4 +1,4 @@
-package datastructures.graphs;
+package datastructures.graphs.dag;
 
 import java.util.*;
 
@@ -98,8 +98,9 @@ public class _03_TopologicalOrdering {
             Integer node = topoResult.pop();
             if (distance[node] != Integer.MAX_VALUE) {
                 for (Pair it : graph.get(node)) {
-                    if (distance[it.getV()] > distance[node] + it.getWeight()) {
-                        distance[it.getV()] = distance[node] + it.getWeight();
+                    int d = distance[node] + it.getWeight();
+                    if (distance[it.getV()] > d) {
+                        distance[it.getV()] = d;
                         parent[it.getV()] = node;
                     }
                 }

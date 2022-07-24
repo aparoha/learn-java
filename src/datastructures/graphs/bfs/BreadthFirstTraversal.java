@@ -1,4 +1,4 @@
-package datastructures.graphs;
+package datastructures.graphs.bfs;
 
 import java.util.*;
 
@@ -7,7 +7,7 @@ import java.util.*;
     Space complexity - O(N)
 
  */
-public class _03_BreadthFirstTraversal {
+public class BreadthFirstTraversal {
 
     public static void main(String[] args) {
         int[][] edges = new int[][]{

@@ -1,7 +1,9 @@
-package datastructures.graphs;
+package datastructures.graphs.representation;
 
 import java.util.*;
 
+//https://github.com/coding-minutes/graph-algorithms-for-competitive-coding/tree/master/Graphs%20Java/src
+//https://github.com/ssid8802/Graph-Coding-Minutes
 public class Graph<T> {
 
     private Map<T, List<Edge<T>>> graph;

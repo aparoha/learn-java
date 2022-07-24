@@ -1,4 +1,4 @@
-package datastructures.graphs;
+package datastructures.graphs.shortestpath;
 
 /*
         Single Source Shortest Path - Shortest path from one node to all other nodes
@@ -23,5 +23,5 @@ package datastructures.graphs;
 
 
  */
-public class SSSP_BellmanFord {
+public class SSSPBellmanFord {
 }
