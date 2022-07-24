@@ -39,8 +39,14 @@ public class SnakesAndLadders {
     }
 
     public static void main(String[] args) {
+        /*
+        ladder[i][0] denotes the starting square of the ith ladder and ladder[i][1] denotes the end of the ith ladder.
+        snake[i][0] denotes the mouth of the ith snake and snake[i][1] denotes the tail of the ith snake.
+         */
         testcase1();
         testcase2();
+        testcase3();
+        testcase4();
     }
 
     private static void testcase1() {
@@ -81,5 +87,35 @@ public class SnakesAndLadders {
                 List.of(19, 7)
         );
         System.out.println(play(ladders, snakes, 30));
+    }
+
+    private static void testcase3() {
+        List<List<Integer>> ladders = List.of(
+                List.of(14, 28),
+                List.of(42, 78),
+                List.of(55, 97),
+                List.of(52, 92)
+        );
+        List<List<Integer>> snakes = List.of(
+                List.of(99, 25),
+                List.of(88, 54),
+                List.of(29, 10)
+        );
+        System.out.println(play(ladders, snakes, 100));
+    }
+
+    private static void testcase4() {
+        List<List<Integer>> ladders = List.of(
+                List.of(6, 46),
+                List.of(19, 43),
+                List.of(52, 71),
+                List.of(57, 98)
+        );
+        List<List<Integer>> snakes = List.of(
+                List.of(47, 9),
+                List.of(62, 40),
+                List.of(96, 75)
+        );
+        System.out.println(play(ladders, snakes, 100));
     }
 }
