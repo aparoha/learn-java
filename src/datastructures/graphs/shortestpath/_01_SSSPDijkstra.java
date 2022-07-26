@@ -14,8 +14,16 @@ import java.util.PriorityQueue;
         4. O(VlogV + E)
             Without priority queue O(V*V + E)
 
+
+            Entering a node from the priority queue [for the first time] is the shortest path to the given node” for which reason you
+            don’t need a separate ‘visited flag’: just when you insert a node v to the queue, you update dist[v] for this vertex (or
+            you don’t insert it at all if distance is larger than currently stored value of dist[v]), than when you take a vertex out
+            of priority queue, check if the value with which it was inserted is smaller than current dist[u]. Re-entering won’t change
+            the solution precisely for the reason that if you are re-entering the node, the value with which it was inserted is larger
+            than current (already computed in the first visit) value of dist[u]. Hence additional visited[u] is not needed
+
  */
-public class SSSPDijkstra {
+public class _01_SSSPDijkstra {
 
     static class Edge {
         private double weight;
@@ -43,7 +51,6 @@ public class SSSPDijkstra {
 
     static class Vertex implements Comparable<Vertex> {
         private String name;
-        private boolean visited;
         private List<Edge> adjacencyList;
         // distance from source vertex
         private double distance;
@@ -64,15 +71,7 @@ public class SSSPDijkstra {
             this.adjacencyList.add(edge);
         }
 
-        public String getName() {
-            return name;
-        }
-
-        public boolean isVisited() {
-            return visited;
-        }
-
-        public List<Edge> getAdjacencyList() {
+        public List<Edge> getNeighbors() {
             return adjacencyList;
         }
 
@@ -106,7 +105,7 @@ public class SSSPDijkstra {
         queue.add(source);
         while (!queue.isEmpty()) {
             Vertex actualVertex = queue.poll();
-            for (Edge edge : actualVertex.getAdjacencyList()) {
+            for (Edge edge : actualVertex.getNeighbors()) {
                 Vertex v = edge.getTargetVertex();
                 double d = actualVertex.getDistance() + edge.getWeight();
                 if (v.getDistance() > d) {
