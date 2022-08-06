@@ -26,7 +26,7 @@ package leetcode.backtracking;
  */
 public class WordSearch_79 {
 
-    public boolean exist(char[][] board, String word) {
+    public static boolean exist(char[][] board, String word) {
         for(int i=0; i<board.length; i++){
             for(int j=0; j<board[0].length; j++){
                 if(board[i][j] == word.charAt(0) && dfs(board, word, i, j, 0)){
@@ -38,7 +38,7 @@ public class WordSearch_79 {
         return false;
     }
 
-    public boolean dfs(char[][] board, String word, int i, int j, int k){
+    public static boolean dfs(char[][] board, String word, int i, int j, int k){
         int[] di={-1,0,1,0};
         int[] dj={0,1,0,-1};
         char t = board[i][j];
@@ -57,7 +57,19 @@ public class WordSearch_79 {
         return false;
     }
 
-    private boolean isValidMove(char[][] board, int pi, int pj) {
+    private static boolean isValidMove(char[][] board, int pi, int pj) {
         return pi >= 0 && pi < board.length && pj >= 0 && pj < board[0].length;
+    }
+
+    public static void main(String[] args) {
+        char[][] grid = {
+            {'c', 'c', 't', 'n', 'a', 'x'},
+            {'c', 'c', 'a', 't', 'n', 't'},
+            {'a', 'c', 'n', 'n', 't', 't'},
+            {'t', 'n', 'i', 'i', 'p', 'p'},
+            {'a', 'o', 'o', 'o', 'a', 'a'},
+            {'s', 'a', 'a', 'a', 'o', 'o'},
+            {'k', 'a', 'i', 'o', 'k', 'i'},
+        };
     }
 }
