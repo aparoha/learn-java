@@ -51,7 +51,7 @@ public class ArticulationPoint {
                      int time,
                      Set<Integer> visited,
                      int[] discover,
-                     int[] low, List<int[]> bridges, List<Integer> articulationpoints
+                     int[] low, List<int[]> bridges, Set<Integer> articulationpoints
                             ) {
         visited.add(currentVertex);
         discover[currentVertex] = low[currentVertex] = time++;
@@ -67,7 +67,7 @@ public class ArticulationPoint {
                 if (low[neighbor] > discover[currentVertex]) {
                     bridges.add(new int[] { currentVertex, neighbor});
                 }
-                // articulation point
+                // articulation point - non root node
                 if (parent != -1 && low[neighbor] >= discover[currentVertex]) {
                     articulationpoints.add(currentVertex);
                 }
@@ -97,12 +97,19 @@ public class ArticulationPoint {
         };
         int vertexCount = 8;
         Map<Integer, List<Integer>> graph = createGraph(edges, vertexCount);
+        findArticulationpointsAndBridges(vertexCount, graph);
+    }
+
+    private static void findArticulationpointsAndBridges(int vertexCount, Map<Integer, List<Integer>> graph) {
         int[] discover = new int[vertexCount];
         int[] low = new int[vertexCount];
         Set<Integer> visited = new HashSet<>();
         List<int[]> bridges = new ArrayList<>();
-        List<Integer> articulationpoints = new ArrayList<>();
-        dfs(graph, 1, -1, 1, visited, discover, low, bridges, articulationpoints);
+        Set<Integer> articulationpoints = new HashSet<>();
+        for (int i = 0; i < vertexCount; i++) {
+            if (!visited.contains(i))
+                dfs(graph, i, -1, 1, visited, discover, low, bridges, articulationpoints);
+        }
         for (int[] bridge : bridges)
             System.out.println("Bridge " + bridge[0] + "->" + bridge[1]);
         for (int ap : articulationpoints)
