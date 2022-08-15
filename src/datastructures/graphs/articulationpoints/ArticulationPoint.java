@@ -92,7 +92,7 @@ public class ArticulationPoint {
                 {4, 5},
                 {4, 6},
                 {5, 7},
-                {6 , 7}
+                {6, 7}
 
         };
         int vertexCount = 8;

@@ -1,4 +1,4 @@
-package indeed;
+package companies.grab.indeed;
 
 import java.util.ArrayList;
 import java.util.List;
