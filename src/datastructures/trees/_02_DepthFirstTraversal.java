@@ -13,7 +13,7 @@ import java.util.Map;
                 n - 1 edges
                 We can use this property to perform DFS instead of visited array
  */
-public class DepthFirstTraversal {
+public class _02_DepthFirstTraversal {
 
     public static void dfs(Map<Integer, List<Integer>> graph, int current, int parent) {
         System.out.println(current);

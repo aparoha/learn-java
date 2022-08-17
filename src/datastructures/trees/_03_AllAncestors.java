@@ -8,7 +8,7 @@ import java.util.*;
         perform dfs from y
         print all ancestors from y to x
  */
-public class AllAncestors {
+public class _03_AllAncestors {
 
     public static void dfs(Map<Integer, List<Integer>> graph, int current, int parent, int[] parents) {
         parents[current] = parent;

@@ -1,6 +1,5 @@
 package datastructures.trees;
 
-import java.sql.Array;
 import java.util.*;
 
 /*
@@ -42,7 +41,7 @@ Output
 
 Expected Time Complexity: O(n + queries.length)
  */
-public class SubtreeProblem {
+public class _05_SubtreeProblem {
 
     public static void main(String[] args) {
         int[][] edges = new int[][] {
@@ -56,7 +55,9 @@ public class SubtreeProblem {
         int[] queries = new int[] {1, 2, 3, 4, 5};
         int[] queryResults = new int[vertices + 1];
         dfs(graph, 1, -1, queryResults);
-        System.out.println(Arrays.toString(queryResults));
+        for (int query : queries) {
+            System.out.println("Query result for " + query + "->" + queryResults[query]);
+        }
     }
 
     private static void dfs(Map<Integer, List<Integer>> graph, int current, int parent, int[] queryResults) {
